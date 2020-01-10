@@ -17,7 +17,7 @@ namespace OokcityServer
 
     class TCPServer
     {
-        private int ListenPort = 82;
+        private int ListenPort = 24170;
         private TcpSocketListener listener;
         private bool serverIsStarted;
         private bool cleanUpTable;
@@ -59,7 +59,7 @@ namespace OokcityServer
 
         public void StripeTest()
         {
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
+            StripeConfiguration.ApiKey = "sk_test_dBR2X5yRuQklppKxRz7jCbuT";
 
             var service = new PaymentIntentService();
             var paymentIntent = service.Get("pi_1FICiQJq5arTgj4oB9FgFwrI");
@@ -72,10 +72,11 @@ namespace OokcityServer
             };
             var transfers = trService.List(trOptions);
 
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
+            StripeConfiguration.ApiKey = "sk_test_dBR2X5yRuQklppKxRz7jCbuT";
 
             var requestOption = new RequestOptions();
-            requestOption.StripeConnectAccountId = "acct_1ExYxyJSf5Bp2SSh";
+            //requestOption.StripeConnectAccountId = "acct_1ExYxyJSf5Bp2SSh";
+            requestOption.StripeAccount = "acct_1ExYxyJSf5Bp2SSh";
 
             var poService = new PayoutService();
             var options = new PayoutListOptions { Limit = 3 };
@@ -88,7 +89,8 @@ namespace OokcityServer
               new BalanceTransactionListOptions
               {
                   Limit = 100,
-                  PayoutId = payoutNeeded
+                 // PayoutId = payoutNeeded,
+                  Payout = payoutNeeded
               }, requestOption);
 
 
@@ -96,7 +98,7 @@ namespace OokcityServer
 
             var balanceTransactionServices = new BalanceTransactionService();
 
-            var balanceTransactionService = balanceTransactionServices.Get(balanceTransactionId, requestOption);
+           // var balanceTransactionService = balanceTransactionServices.Get(balanceTransactionId, requestOption);
 
             var tsUnix = payouts.ElementAt(0).Created;
 
@@ -2432,9 +2434,11 @@ namespace OokcityServer
             var idOrder = val_pi_confirmation["Id"].ToString();
 
             var requestOption = new RequestOptions();
-            requestOption.StripeConnectAccountId = partnerStripeAccount;
+           // requestOption.StripeConnectAccountId = partnerStripeAccount;
+            requestOption.StripeAccount = partnerStripeAccount;
 
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
+
+            StripeConfiguration.ApiKey = "sk_test_dBR2X5yRuQklppKxRz7jCbuT";
 
             var paymentIntentService = new PaymentIntentService();
 

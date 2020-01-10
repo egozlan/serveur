@@ -18,14 +18,15 @@ namespace OokcityServer
         /// <param name="curency">Curency.</param>
         public static Charge MakeOneClickPayment(string customerId, int amount, string curency = "eur")
         {
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
+            StripeConfiguration.ApiKey = "sk_test_dBR2X5yRuQklppKxRz7jCbuT";
 
             var chargeOptions = new ChargeCreateOptions()
             {
                 Amount = amount,
                 Currency = curency,
                 Capture = false,
-                CustomerId = customerId
+                Customer = customerId
+               // CustomerId = customerId
             };
             var chargeService = new ChargeService();
             Charge charge = chargeService.Create(chargeOptions);
@@ -36,7 +37,7 @@ namespace OokcityServer
 
         public static Charge MakeCapture(string customerId,string chargeId,string orderId,string clientId)
         {
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
+            StripeConfiguration.ApiKey = "sk_test_dBR2X5yRuQklppKxRz7jCbuT";
 
             var chargeUpdateOptions = new ChargeUpdateOptions()
             {
