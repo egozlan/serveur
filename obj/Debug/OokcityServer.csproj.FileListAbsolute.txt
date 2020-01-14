@@ -1,8 +1,3 @@
-D:\GitHub\serveur\obj\Debug\OokcityServer.csprojAssemblyReference.cache
-D:\GitHub\serveur\obj\Debug\OokcityServer.exe.config
-D:\GitHub\serveur\obj\Debug\OokcityServer.Form1.resources
-D:\GitHub\serveur\obj\Debug\OokcityServer.Properties.Resources.resources
-D:\GitHub\serveur\obj\Debug\OokcityServer.csproj.GenerateResource.cache
 D:\GitHub\serveur\bin\Debug\OokcityServer.exe.config
 D:\GitHub\serveur\bin\Debug\OokcityServer.exe
 D:\GitHub\serveur\bin\Debug\OokcityServer.pdb
@@ -136,6 +131,11 @@ D:\GitHub\serveur\bin\Debug\System.Reactive.xml
 D:\GitHub\serveur\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\GitHub\serveur\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\GitHub\serveur\bin\Debug\System.ValueTuple.xml
+D:\GitHub\serveur\obj\Debug\OokcityServer.exe.config
+D:\GitHub\serveur\obj\Debug\OokcityServer.Form1.resources
+D:\GitHub\serveur\obj\Debug\OokcityServer.Properties.Resources.resources
+D:\GitHub\serveur\obj\Debug\OokcityServer.csproj.GenerateResource.cache
 D:\GitHub\serveur\obj\Debug\OokcityServer.csproj.CopyComplete
 D:\GitHub\serveur\obj\Debug\OokcityServer.exe
 D:\GitHub\serveur\obj\Debug\OokcityServer.pdb
+D:\GitHub\serveur\obj\Debug\OokcityServer.csprojAssemblyReference.cache
