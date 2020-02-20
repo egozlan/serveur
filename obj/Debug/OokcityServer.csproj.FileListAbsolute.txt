@@ -139,3 +139,7 @@ D:\GitHub\serveur\obj\Debug\OokcityServer.csproj.CopyComplete
 D:\GitHub\serveur\obj\Debug\OokcityServer.exe
 D:\GitHub\serveur\obj\Debug\OokcityServer.pdb
 D:\GitHub\serveur\obj\Debug\OokcityServer.csprojAssemblyReference.cache
+D:\GitHub\serveur\bin\Debug\OokcityServer.exe.manifest
+D:\GitHub\serveur\bin\Debug\OokcityServer.application
+D:\GitHub\serveur\obj\Debug\OokcityServer.exe.manifest
+D:\GitHub\serveur\obj\Debug\OokcityServer.application

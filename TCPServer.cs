@@ -2292,40 +2292,10 @@ namespace OokcityServer
             }
 
             var msg = "Votre chauffeur ne vous a pas trouvé à l'emplacement que vous avez specifié sur la commande et cela depuis plus de 4 minutes. Vous serez facturés de 5 €.";
-            Task.Run(() => { SendClientRemoteNotification(idSocketClient, msg); });
+            var t = Task.Run(() => { SendClientRemoteNotification(idSocketClient, msg); });
 
             // On archive la commande
             ArchiveOrder(orderId.ToString(), "6");
-
-            /*
-            // Recuperation de l id du payment intent dans la database
-            MySqlRequest mySqlRequest = new MySqlRequest();
-            var sql_select_pi_confirmation = "SELECT pspReference FROM confirmation WHERE confirmation.Id = '" + jsonVal["order_id"] + "' ";
-            var result_select_pi_confirmation = mySqlRequest.Select(sql_select_pi_confirmation);
-            if (result_select_pi_confirmation == null) { Program.MainForm.WriteTextOnConsole("mySqlRequest Error : " + sql_select_pi_confirmation); }
-            var val_pi_confirmation = result_select_pi_confirmation[0];
-            var paymentIntentId = val_pi_confirmation["pspReference"].ToString();
-            // Suprimmer la commande
-            var sql_delete_last_order = "DELETE FROM confirmation WHERE Id = '" + jsonVal["order_id"] + "';";
-            if (mySqlRequest.ExecuteNonQuery(sql_delete_last_order) == false) { Program.MainForm.WriteTextOnConsole("DELET LAST ORDER Mysql Error : " + sql_delete_last_order); }
-            
-            // Faire un reboursement
-            StripeConfiguration.SetApiKey("sk_test_dBR2X5yRuQklppKxRz7jCbuT");
-            var paymentIntentService = new PaymentIntentService();
-            var captureOptions = new PaymentIntentCaptureOptions
-            {
-                AmountToCapture = 500
-            };
-            paymentIntentService.Capture(paymentIntentId, captureOptions);
-            
-            // Envoyer une commande TCP a la device du client final par le biais du SocketTCP.
-            var idSocketClient = "C"+jsonVal["id_client"].ToString();
-            var data = new { action = "customer_not_find" };
-            var client_final = SocketPool[idSocketClient];
-            SocketWriteSmart(client_final, data);
-            var msg = "Notre partenaire ne vous a pas trouver a l'emplacement prevu vous serez facturer de 5 Euros.";
-            Task.Run(() => { SendClientRemoteNotification(idSocketClient, msg); });
-            */
         }
 
         /// <summary>
